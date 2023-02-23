@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 
-def preprocessing_old_file(file_name):                      #Preprocessing the old metagenome file to extract data to perform different statistical analysis.
+def preprocessing1_old_file(file_name):                      #Preprocessing the old metagenome file to extract data to perform different statistical analysis.
     metagenome_csv = pd.read_excel(file_name)
     
     column_values = []
@@ -36,7 +36,7 @@ def preprocessing_old_file(file_name):                      #Preprocessing the o
 
     return list_abundance_values, category                   #Function returns abundance values in a 2D list along with the corresponding categories.
 
-def preprocessing_new_file(mapping_file_name, old_file_name, new_file_name):
+def preprocessing1_new_file(mapping_file_name, old_file_name, new_file_name):
     mapping_file = open(mapping_file_name, 'r')
     new_file = pd.read_csv(new_file_name)
     old_metagenome_csv = pd.read_excel(old_file_name)
@@ -119,4 +119,4 @@ def preprocessing_new_file(mapping_file_name, old_file_name, new_file_name):
         if (new_metagenome_csv[i].loc['Feature'].startswith('PRISM')):
             category.append(new_metagenome_csv[i].loc['Diagnosis'])
 
-    return list_abundance_values, category        #Return the same as the other preprocessing function for further analysis.
+    return new_metagenome_csv, list_abundance_values, category        #Return the same as the other preprocessing function for further analysis.
