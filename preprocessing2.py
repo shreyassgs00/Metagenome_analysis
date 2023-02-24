@@ -67,11 +67,11 @@ def preprocessing2_new_file(mapping_file, old_file_name,new_file_name):
     target_cd_uc = []
     for i in category:
         if i == 'Control':
-            target.append(0)
+            target_cd_uc.append(0)
         elif i == 'UC':
-            target.append(1)
+            target_cd_uc.append(1)
         else:
-            target.append(2)
+            target_cd_uc.append(2)
     
     validation_abundances = []        #Finding abundance values for the validation groups to enable Random Forest analysis
     for i in metagenome_csv:

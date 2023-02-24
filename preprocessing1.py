@@ -16,10 +16,12 @@ def preprocessing1_old_file(file_name):                      #Preprocessing the 
     for column in columns:
         column_values.append([column,metagenome_csv[column]])
 
+    not_present_set = {'PRISM|7238', 'PRISM|7445', 'PRISM|7947', 'PRISM|8550'}
+
     new_column_values = []
     abundance_values = []
     for i in column_values:
-        if i[0].startswith('PRISM'):
+        if i[0].startswith('PRISM') and i[0] not in not_present_set:
             abundance_values.append(i[1][8:])
             new_column_values.append(i)
 
