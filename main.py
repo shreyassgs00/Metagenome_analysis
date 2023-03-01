@@ -51,4 +51,7 @@ def main():
     plot_figures.plot_mean_aucs(mean_aucs_old)
     plot_figures.plot_mean_aucs(mean_aucs_new)
 
+    daa_old_results = daa.perform_daa(old_prism_abundance_values, old_category)
+    daa_new_results = daa.perform_daa(new_prism_abundance_values, new_category)
+
 main()
